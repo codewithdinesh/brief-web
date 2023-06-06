@@ -1,6 +1,7 @@
 "use client"
 import axios from 'axios';
 import { useState } from 'react';
+import { Navbar } from './Navbar';
 
 
 const HomeC = () => {
@@ -23,9 +24,7 @@ const HomeC = () => {
     };
 
     return (
-        <div className="container mx-auto mt-8">
-            <h1 className="text-3xl font-bold mb-4">Scrape Website</h1>
-
+        <div className="">
             <form onSubmit={handleFormSubmit}>
                 <input
                     type="text"
@@ -43,10 +42,15 @@ const HomeC = () => {
             </form>
 
             {scrapedContent && (
-                <div className="mt-8 dark:bg-slate-600 p-2 rounded-lg">
+                <div className="mt-8 dark:bg-slate-600 p-2 rounded-lg w-full break-words ">
                     <h2 className="text-xl font-bold mb-4">Scraped Content</h2>
-                    <pre className="bg-gray-100 p-4 dark:bg-slate-500 m-1 rounded-md">{scrapedContent}</pre>
+                    <pre className="bg-gray-100 p-4 dark:bg-slate-500 m-1 rounded-md">
+                        <code style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
+                            {scrapedContent}
+                        </code>
+                    </pre>
                 </div>
+
             )}
         </div>
     );
